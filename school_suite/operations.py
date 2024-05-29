@@ -1,14 +1,16 @@
 import random
 import textwrap
 
+
 def genera_divisione():
     dividendo = random.randint(10, 60)
     divisore = random.randint(2, 10)
-    
+
     print(f"\n{dividendo}:{divisore}=", end="\n\n")
-    for line in textwrap.wrap('*' * dividendo, 10):
+    for line in textwrap.wrap("*" * dividendo, 10):
         print(line)
-    
+
+
 def generatore_divisioni():
     while True:
         try:
@@ -17,7 +19,9 @@ def generatore_divisioni():
                 raise ValueError("Il numero deve essere positivo.")
             break
         except ValueError as e:
-            print(f"Input non valido: {e}. Per favore inserisci un numero intero positivo.")
+            print(
+                f"Input non valido: {e}. Per favore inserisci un numero intero positivo."
+            )
 
     for _ in range(divisioni):
         genera_divisione()
