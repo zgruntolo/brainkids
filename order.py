@@ -32,7 +32,8 @@ def check_reverse_sorted_list(random_list, user_list):
 
 def lista_crescente():
     """Main function to generate random list, get user inputs, and check correctness."""
-    random_list = generate_random_list(10)
+    numbers = int(input("Quanti numeri vuoi inserire? "))
+    random_list = generate_random_list(numbers)
     print(f"Ordina questi numeri in ordine CRESCENTE: {random_list}")
     
     user_list = get_user_inputs(len(random_list))
@@ -41,7 +42,8 @@ def lista_crescente():
     
 def lista_decrescente():
     """Main function to generate random list, get user inputs, and check correctness."""
-    random_list = generate_random_list(10)
+    numbers = int(input("Quanti numeri vuoi inserire? "))
+    random_list = generate_random_list(numbers)
     print(f"Ordina questi numeri in ordine DECRESCENTE: {random_list}")
     
     user_list = get_user_inputs(len(random_list))
