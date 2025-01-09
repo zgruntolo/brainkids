@@ -1,6 +1,6 @@
 .PHONY: init format lint lint/flake8 lint/black test clean clean-temp clean-build clean-pyc clean-test
 
-PROJECT_DIR=school_suite
+PROJECT_DIR=livingornot
 TESTS_DIR=tests
 
 init: ## install dependencies

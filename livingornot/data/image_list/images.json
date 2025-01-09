@@ -1,0 +1,23 @@
+{
+  "Vivente": [
+    "farfalla.jpg",
+    "leone.jpg",
+    "tigre.jpg"
+  ], 
+  "Non Vivente": [
+    "arancia.png",
+    "bottiglia.png",
+    "chiave.png",
+    "cuscino.png",
+    "forbici.png",
+    "lampada.png",
+    "lapis.png",
+    "libro.png",
+    "orologio.png",
+    "penna.png",
+    "sasso.png",
+    "sedia.png",
+    "tazza.png",
+    "vaso.png"
+  ]  
+}
