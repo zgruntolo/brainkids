@@ -24,13 +24,6 @@ make format
 
 # run tests
 make test
-```
-
-To run individual python files as main
-
-```shell
-PYTHONPATH=nexusnovel/ python nexusnovel/examples/game.py
-```
 
 ## Project structure
 
