@@ -1,7 +1,14 @@
 {
   "Vivente": [
+    "dottore.jpg",
     "farfalla.jpg",
     "leone.jpg",
+    "mucca.jpg",
+    "pappagallo.jpg",
+    "pesce.jpg",
+    "scoiattolo.jpg",
+    "serpente.jpg",
+    "talpa.jpg",
     "tigre.jpg"
   ], 
   "Non Vivente": [
