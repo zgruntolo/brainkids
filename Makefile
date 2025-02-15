@@ -1,6 +1,6 @@
 .PHONY: init format lint lint/flake8 lint/black test clean clean-temp clean-build clean-pyc clean-test
 
-PROJECT_DIR=livingornot
+PROJECT_DIR=schooltestsuite
 TESTS_DIR=tests
 
 init: ## install dependencies
@@ -38,6 +38,7 @@ clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
+	find . -name '.DS_Store' -exec rm -fr {} +
 
 clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache

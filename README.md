@@ -1,4 +1,4 @@
-# Living Or Not
+# School Test Suite
 
 ## Development
 
@@ -8,6 +8,12 @@ Use the following commands to create, activate, and deactivate the virtual envir
 python -m venv venv
 source venv/bin/activate
 deactivate
+```
+
+Use the following commands to create a single .exe file.
+
+```shell
+pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --name SchoolTestSuite main.py
 ```
 
 The Makefile contains frequent utility commands.
@@ -30,32 +36,59 @@ make test
 * src/: Contains the source code of the project.
 * core/: Contains core functionality modules.
 * gui/: Contains modules related to the graphical user interface.
-* config/: Contains configuration files.
 * tests/: Contains unit tests for the project.
 * data/: Contains data content files used by the application.
 * requirements.txt: Lists the Python dependencies required for the project.
 
 ```code
-nexusnovel/
-├── src/
-│   ├── core/
-│   │   ├── (source files)
-│   │   └── ...
-│   ├── gui/
-│   │   ├── (source files)
-│   │   └── ...
-│   ├── config/
-│   │   ├── config.json
-│   │   └── ...
-│   └── ...
+school/
+├── schooltestsuite/
+│   ├── livingornot/
+│   │   ├── (module files)
+│   │   ├── data/
+│   │   │   ├── files/
+│   │   │   │   ├── chart.json
+│   │   │   │   └── images.json
+│   │   │   ├── images/
+│   │   │   │   ├── Non Vivente/
+│   │   │   │   │   └── ...
+│   │   │   │   ├── Vivente/
+│   │   │   │   │   └── ...
+│   │   └── livingornot.py
+│   ├── src/
+│   │   ├── core/
+│   │   │   ├── chart.py
+│   │   │   ├── common_ui_callback.py
+│   │   │   ├── datamanager.py
+│   │   │   ├── gamelogic.py
+│   │   │   ├── imagemanager.py
+│   │   │   └── state.py
+│   │   ├── gui/
+│   │   │   ├── images/
+│   │   │   │   ├── intro.png
+│   │   │   │   └── name.png
+│   │   │   └──renderer.py
 ├── tests/
 │   ├── (test files)
 │   └── ...
-├── data/
-│   ├── (data files)
-│   └── ...
-├── requirements.txt
+├── treeparts/
+│   │   ├── (module files)
+│   │   ├── data/
+│   │   │   ├── files/
+│   │   │   │   ├── chart.json
+│   │   │   │   └── images.json
+│   │   │   ├── images/
+│   │   │   │   ├── Fusto/
+│   │   │   │   │   └── ...
+│   │   │   │   ├── Foglie/
+│   │   │   │   │   └── ...
+│   │   │   │   ├── Radici/
+│   │   │   │   │   └── ...
+│   │   └── treeparts.py
+│   └── main.py
+├── Makefile
 ├── README.md
-├── setup.py
-└── ...
+├── requirements_dev.txt
+├── requirements.txt
+└── setup.py
 ```
