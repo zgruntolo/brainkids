@@ -20,6 +20,7 @@ class Renderer:
         self.root.title(title)
         self.root.grid_rowconfigure(0, weight=1)
         self.root.grid_columnconfigure(0, weight=1)
+        self.root.iconbitmap(get_resource_path("src/gui/images/favicon.ico"))
 
         style = ttk.Style()
         style.theme_use("clam")
@@ -100,7 +101,7 @@ class Renderer:
         # Show the username selection screen
         self.label_image = ttk.Label(self.frame1)
         self.label_image.grid(row=0, column=0, padx=5, pady=5)
-        image_path = get_resource_path("src/gui/images/intro.png")
+        image_path = get_resource_path("src/gui/images/name.png")
         image = Image.open(image_path)
         self.tk_image = ImageTk.PhotoImage(image)
         self.label_image.config(image=self.tk_image)
@@ -119,8 +120,15 @@ class Renderer:
     def get_difficulty(self, difficulties):
         # Show the difficulty selection screen
         self.clean_screen()
+        self.label_image = ttk.Label(self.frame1)
+        self.label_image.grid(row=0, column=0, padx=5, pady=5)
+        image_path = get_resource_path("src/gui/images/difficulty.png")
+        image = Image.open(image_path)
+        self.tk_image = ImageTk.PhotoImage(image)
+        self.label_image.config(image=self.tk_image)
+        self.label_image.image = self.tk_image
         difficulty_label = ttk.Label(self.frame1, text="Scegli la difficoltà:")
-        difficulty_label.grid(row=0, column=0, padx=5, pady=5)
+        difficulty_label.grid(row=1, column=0, padx=5, pady=5)
         for idx, difficulty in enumerate(difficulties):
             button = ttk.Button(
                 self.frame2,
@@ -142,6 +150,7 @@ class Renderer:
         self.clean_screen()
 
         for idx, (left_value, right_value) in enumerate(data):
+            self.frame1.rowconfigure(idx, weight=1)
             for col, text, anchor in [
                 (0, left_value, "w"),
                 (1, "." * 20, "center"),

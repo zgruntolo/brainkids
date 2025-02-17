@@ -6,14 +6,14 @@ Use the following commands to create, activate, and deactivate the virtual envir
 
 ```shell
 python -m venv venv
-source venv/bin/activate
+source venv/Scripts/activate
 deactivate
 ```
 
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --name SchoolTestSuite main.py
+pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon="src/gui/images/favicon.ico" --name SchoolTestSuite main.py
 ```
 
 The Makefile contains frequent utility commands.
