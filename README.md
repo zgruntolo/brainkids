@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon="src/gui/images/favicon.ico" --name SchoolTestSuite main.py
+pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon=src/gui/images/favicon.ico --name SchoolTestSuite main.py
 ```
 
 The Makefile contains frequent utility commands.

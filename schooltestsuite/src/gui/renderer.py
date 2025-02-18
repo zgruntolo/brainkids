@@ -1,3 +1,4 @@
+import platform
 import sys
 import tkinter as tk
 from pathlib import Path
@@ -20,7 +21,11 @@ class Renderer:
         self.root.title(title)
         self.root.grid_rowconfigure(0, weight=1)
         self.root.grid_columnconfigure(0, weight=1)
-        self.root.iconbitmap(get_resource_path("src/gui/images/favicon.ico"))
+
+        # App icon
+        self.set_icon()
+
+        # UI parameters
 
         style = ttk.Style()
         style.theme_use("clam")
@@ -33,47 +38,89 @@ class Renderer:
         # Frame construction
         self.main_frame = ttk.Frame(self.root)
         self.main_frame.grid(row=0, column=0, sticky="nsew")
-        self.main_frame.rowconfigure(0, weight=1)
-        self.main_frame.columnconfigure(0, weight=1)
+        self.configure_frame(self.main_frame)
 
         self.frame1 = ttk.Frame(self.main_frame)
         self.frame1.grid(row=0, column=0, sticky="nsew")
-        self.frame1.rowconfigure(0, weight=1)
-        self.frame1.columnconfigure(0, weight=1)
+        self.configure_frame(self.frame1)
 
         self.frame2 = ttk.Frame(self.main_frame)
         self.frame2.grid(row=1, column=0, sticky="nsew")
-        self.frame2.rowconfigure(0, weight=1)
-        self.frame2.columnconfigure(0, weight=1)
+        self.configure_frame(self.frame2)
+
+    def set_icon(self):
+        system_os = platform.system()
+        if system_os == "Windows":
+            icon_path = "src/gui/images/icon.ico"
+        else:
+            icon_path = "src/gui/images/icon.icns"
+            icon = Image.open(get_resource_path(icon_path))
+            icon_photo = ImageTk.PhotoImage(icon)
+            self.root.iconphoto(True, icon_photo)
+
+    def configure_frame(self, frame):
+        frame.rowconfigure(0, weight=1)
+        frame.columnconfigure(0, weight=1)
 
     def clean_screen(self):
         for frame in (self.frame1, self.frame2):
             for widget in frame.winfo_children():
                 widget.destroy()
 
-    def selection_screen(self, games):
-        # Show the selection screen
+    def load_images(self, image_path):
+        # Show the generating images screen
         self.label_image = ttk.Label(self.frame1)
         self.label_image.grid(row=0, column=0, padx=5, pady=5)
-        image_path = get_resource_path("src/gui/images/intro.png")
-        image = Image.open(image_path)
+        image_chosen = get_resource_path(image_path)
+        image = Image.open(image_chosen)
         self.tk_image = ImageTk.PhotoImage(image)
         self.label_image.config(image=self.tk_image)
         self.label_image.image = self.tk_image
-        self.label_selection = ttk.Label(self.frame1, text="Scegli un gioco:")
-        self.label_selection.grid(row=1, column=0, padx=5, pady=5)
+
+    def load_label(self, text):
+        # Show the generating label screen
+        self.label_generating = ttk.Label(self.frame1, text=text)
+        self.label_generating.grid(row=1, column=0, padx=5, pady=5)
+
+    def create_button(self, text, command, row):
+        button = ttk.Button(self.frame2, text=text, command=command)
+        button.grid(row=row, column=0, padx=5, pady=5)
+
+    def selection_screen(self, games):
+        # Show the selection screen
+        self.load_images("src/gui/images/intro.png")
+        self.load_label("Scegli un gioco:")
         for idx, category in enumerate(games):
-            button = ttk.Button(
-                self.frame2,
-                text=category,
-                command=lambda c=category: self.start_game(games[c]),
+            self.create_button(
+                category, lambda c=category: self.start_game(games[c]), idx
             )
-            button.grid(row=idx, column=0, padx=5, pady=5)
 
     def start_game(self, game_function):
-        # Destroy the selection screen and start the single game
+        # Destroy the selection screen and start the chosen game
         self.root.destroy()
         game_function()
+
+    def get_name(self):
+        # Show the username selection screen
+        self.load_images("src/gui/images/name.png")
+        self.load_label("Benvenuto! Inserisci il tuo nome:")
+        name_entry = ttk.Entry(self.frame2, width=30)
+        name_entry.grid(row=0, column=0, padx=5, pady=5)
+        self.create_button(
+            "Invia", lambda: self.ui_callback("assign_username", name_entry.get()), 1
+        )
+
+    def get_difficulty(self, difficulties):
+        # Show the difficulty selection screen
+        self.clean_screen()
+        self.load_images("src/gui/images/difficulty.png")
+        self.load_label("Scegli la difficoltà:")
+        for idx, difficulty in enumerate(difficulties):
+            self.create_button(
+                difficulty,
+                lambda d=difficulty: self.ui_callback("assign_difficulty", d),
+                idx,
+            )
 
     def setup_gui_images(self):
         # Image Label
@@ -81,61 +128,18 @@ class Renderer:
         self.label_image = ttk.Label(self.frame1)
         self.label_image.grid(row=0, column=0, padx=5, pady=5)
 
-    def create_buttons(self, categories):
+    def answers_button(self, categories):
         # Dynamic buttons creation
         for idx, category in enumerate(categories):
-            button = ttk.Button(
-                self.frame2,
-                text=category,
-                command=lambda c=category: self.ui_callback("check_answer", c),
+            self.create_button(
+                category, lambda c=category: self.ui_callback("check_answer", c), idx
             )
-            button.grid(row=idx, column=0, padx=5, pady=5)
 
     def next_image(self, image):
         # Show the next image
         self.tk_image = ImageTk.PhotoImage(image)
         self.label_image.config(image=self.tk_image)
         self.label_image.image = self.tk_image
-
-    def get_name(self):
-        # Show the username selection screen
-        self.label_image = ttk.Label(self.frame1)
-        self.label_image.grid(row=0, column=0, padx=5, pady=5)
-        image_path = get_resource_path("src/gui/images/name.png")
-        image = Image.open(image_path)
-        self.tk_image = ImageTk.PhotoImage(image)
-        self.label_image.config(image=self.tk_image)
-        self.label_image.image = self.tk_image
-        name_label = ttk.Label(self.frame1, text="Benvenuto! Inserisci il tuo nome:")
-        name_label.grid(row=1, column=0, padx=5, pady=5)
-        name_entry = ttk.Entry(self.frame2, width=30)
-        name_entry.grid(row=0, column=0, padx=5, pady=5)
-        button = ttk.Button(
-            self.frame2,
-            text="Invia",
-            command=lambda: self.ui_callback("assign_username", name_entry.get()),
-        )
-        button.grid(row=1, column=0, padx=5, pady=5)
-
-    def get_difficulty(self, difficulties):
-        # Show the difficulty selection screen
-        self.clean_screen()
-        self.label_image = ttk.Label(self.frame1)
-        self.label_image.grid(row=0, column=0, padx=5, pady=5)
-        image_path = get_resource_path("src/gui/images/difficulty.png")
-        image = Image.open(image_path)
-        self.tk_image = ImageTk.PhotoImage(image)
-        self.label_image.config(image=self.tk_image)
-        self.label_image.image = self.tk_image
-        difficulty_label = ttk.Label(self.frame1, text="Scegli la difficoltà:")
-        difficulty_label.grid(row=1, column=0, padx=5, pady=5)
-        for idx, difficulty in enumerate(difficulties):
-            button = ttk.Button(
-                self.frame2,
-                text=difficulty,
-                command=lambda d=difficulty: self.ui_callback("assign_difficulty", d),
-            )
-            button.grid(row=idx, column=0, padx=5, pady=5)
 
     def correct_answer(self):
         # Show a message for a correct answer

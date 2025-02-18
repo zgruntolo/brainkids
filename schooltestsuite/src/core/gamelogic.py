@@ -16,7 +16,6 @@ class GameLogic:
         ui_callback,
     ):
         # Initialize the game logic with preloaded images and difficulty level
-
         self.chart_filename = chart_filename
         self.current_category = None
         self.data_dir = data_dir
@@ -34,6 +33,8 @@ class GameLogic:
 
     def assign_username(self, name):
         # Assign username
+        if name == "":
+            name = "Primaria Vamba"
         self.state.avatar_name = name
         self.ui_callback("get_difficulty", self.difficulty_ranks.keys())
 
@@ -94,5 +95,6 @@ class GameLogic:
 
     def end_game(self):
         # End the game and show the final chart
-        self.save_score()
-        self.ui_callback("end_game", self.state.chart)
+        if self.state.avatar_score > 0:
+            self.save_score()
+            self.ui_callback("end_game", self.state.chart)

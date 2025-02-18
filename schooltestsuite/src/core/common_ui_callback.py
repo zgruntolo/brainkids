@@ -11,7 +11,7 @@ def create_ui_callback(game_logic, renderer):
             game_logic.assign_difficulty(*args)
         elif action == "setup_ui":
             renderer.setup_gui_images()
-            renderer.create_buttons(*args)
+            renderer.answers_button(*args)
         elif action == "show_image":
             renderer.next_image(*args)
         elif action == "check_answer":
