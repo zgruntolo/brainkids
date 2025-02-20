@@ -29,20 +29,20 @@ class GameLogic:
 
     def start_game(self):
         # Start the chosen game
-        self.ui_callback("get_name")
+        self.ui_callback("request_player_name")
 
     def assign_username(self, name):
         # Assign username
         if name == "":
             name = "Primaria Vamba"
         self.state.avatar_name = name
-        self.ui_callback("get_difficulty", self.difficulty_ranks.keys())
+        self.ui_callback("request_game_difficulty", self.difficulty_ranks.keys())
 
     def assign_difficulty(self, difficulty):
         # Assign difficulty
         self.difficulty = self.difficulty_ranks[difficulty]
         self.load_game_data()
-        self.ui_callback("setup_ui", self.state.category.keys())
+        self.ui_callback("display_answer_buttons", self.state.category.keys())
         self.show_next_image()
 
     def _initialize_state(self):
@@ -74,7 +74,7 @@ class GameLogic:
         current_image_index = self.state.category[self.current_category]
 
         image = self.preloaded_images[self.current_category][current_image_index]
-        self.ui_callback("show_image", image)
+        self.ui_callback("display_image", image)
 
         self.state.category[self.current_category] += 1
 
@@ -82,9 +82,9 @@ class GameLogic:
         # Check if the answer is right or wrong
         if answer == self.current_category:
             self.state.avatar_score += 10
-            self.ui_callback("correct_answer")
+            self.ui_callback("show_correct_answer")
         else:
-            self.ui_callback("wrong_answer")
+            self.ui_callback("show_wrong_answer")
 
         self.show_next_image()
 
@@ -97,4 +97,4 @@ class GameLogic:
         # End the game and show the final chart
         if self.state.avatar_score > 0:
             self.save_score()
-            self.ui_callback("end_game", self.state.chart)
+            self.ui_callback("display_game_results", self.state.chart)

@@ -1,8 +1,7 @@
 import sys
 from pathlib import Path
 from src.core.gamelogic import GameLogic
-from src.core.common_ui_callback import create_ui_callback
-from src.gui.renderer import Renderer
+from src.core.common_ui_callback import create_game_ui_callback
 
 # Handle the Pyinstaller files path
 if hasattr(sys, "_MEIPASS"):
@@ -17,7 +16,7 @@ DEFAULT_CHART = ABSOLUTE_PATH / "data/files/chart.json"
 CHART_FILENAME = "livingornot.json"
 
 
-def LivingOrNot():
+def LivingOrNot(renderer):
     game_logic = GameLogic(
         DIFFICULTY_RANK,
         DATA_FILE,
@@ -26,8 +25,8 @@ def LivingOrNot():
         CHART_FILENAME,
         ui_callback=None,
     )
-    renderer = Renderer(ui_callback=None, title="Viventi o Non Viventi")
-    ui_callback = create_ui_callback(game_logic, renderer)
+
+    ui_callback = create_game_ui_callback(game_logic, renderer)
     game_logic.ui_callback = ui_callback
-    renderer.ui_callback = ui_callback
+    renderer.game_callback = ui_callback
     game_logic.start_game()
