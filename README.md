@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon=src/gui/images/favicon.ico --name SchoolTestSuite main.py
+pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon=src/gui/images/icon.ico --name SchoolTestSuite main.py
 ```
 
 The Makefile contains frequent utility commands.
@@ -65,6 +65,9 @@ school/
 │   │   │   └── state.py
 │   │   ├── gui/
 │   │   │   ├── images/
+│   │   │   │   ├── difficulty.png
+│   │   │   │   ├── icon.icns
+│   │   │   │   ├── icon.ico
 │   │   │   │   ├── intro.png
 │   │   │   │   └── name.png
 │   │   │   └──renderer.py

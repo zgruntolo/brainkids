@@ -23,10 +23,10 @@ def LivingOrNot(renderer):
         IMAGE_DIR,
         DEFAULT_CHART,
         CHART_FILENAME,
-        ui_callback=None,
+        game_ui_callback=None,
     )
 
     ui_callback = create_game_ui_callback(game_logic, renderer)
-    game_logic.ui_callback = ui_callback
+    game_logic.game_ui_callback = ui_callback
     renderer.game_callback = ui_callback
     game_logic.start_game()
