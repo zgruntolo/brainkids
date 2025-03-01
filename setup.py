@@ -9,14 +9,14 @@ setup(
     python_requires=">=3.13",
     entry_points={
         "console_scripts": [
-            "livingornot=livingornot.main",
+            "brain_kids=brain_kinds.main",
         ],
     },
-    keywords="schooltestsuite",
-    name="schooltestsuite",
-    description="School Test Suite",
-    packages=find_packages(include=["schooltestsuite", "livingornot.*"]),
-    #test_suite="tests",
-    url="https://github.com/Team-PyPo/nexus-novel",
-    version="1.0.1",
+    keywords="brainkids",
+    name="brainkids",
+    description="BrainKids",
+    packages=find_packages(include=["brain_kids"]),
+    test_suite="tests",
+    url="https://github.com/zgruntolo/brainkids",
+    version="1.0.0",
 )

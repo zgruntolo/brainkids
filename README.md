@@ -1,4 +1,4 @@
-# School Test Suite
+# BrainKids
 
 ## Development
 
@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "livingornot;livingornot" --add-data "src;src" --add-data "treeparts;treeparts" --icon=src/gui/images/icon.ico --name SchoolTestSuite main.py
+pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids main.py
 ```
 
 The Makefile contains frequent utility commands.
@@ -41,11 +41,29 @@ make test
 * requirements.txt: Lists the Python dependencies required for the project.
 
 ```code
-school/
-├── schooltestsuite/
-│   ├── livingornot/
-│   │   ├── (module files)
-│   │   ├── data/
+brainkids/
+├── brainkids/
+│   ├── data/
+│   │   ├── gui/
+│   │   │   ├── images/
+│   │   │   │   ├── difficulty.png
+│   │   │   │   ├── icon.icns
+│   │   │   │   ├── icon.ico
+│   │   │   │   ├── icon.png
+│   │   │   │   ├── intro.png
+│   │   │   │   └── name.png
+│   │   ├── lakeriversea/
+│   │   │   ├── files/
+│   │   │   │   ├── chart.json
+│   │   │   │   └── images.json
+│   │   │   ├── images/
+│   │   │   │   ├── Fiume/
+│   │   │   │   │   └── ...
+│   │   │   │   ├── Lago/
+│   │   │   │   │   └── ...
+│   │   │   │   ├── Mare/
+│   │   │   │   │   └── ...
+│   │   ├── livingornot/
 │   │   │   ├── files/
 │   │   │   │   ├── chart.json
 │   │   │   │   └── images.json
@@ -54,29 +72,7 @@ school/
 │   │   │   │   │   └── ...
 │   │   │   │   ├── Vivente/
 │   │   │   │   │   └── ...
-│   │   └── livingornot.py
-│   ├── src/
-│   │   ├── core/
-│   │   │   ├── chart.py
-│   │   │   ├── common_ui_callback.py
-│   │   │   ├── datamanager.py
-│   │   │   ├── gamelogic.py
-│   │   │   ├── imagemanager.py
-│   │   │   └── state.py
-│   │   ├── gui/
-│   │   │   ├── images/
-│   │   │   │   ├── difficulty.png
-│   │   │   │   ├── icon.icns
-│   │   │   │   ├── icon.ico
-│   │   │   │   ├── intro.png
-│   │   │   │   └── name.png
-│   │   │   └──renderer.py
-├── tests/
-│   ├── (test files)
-│   └── ...
-├── treeparts/
-│   │   ├── (module files)
-│   │   ├── data/
+│   │   ├── treeparts/
 │   │   │   ├── files/
 │   │   │   │   ├── chart.json
 │   │   │   │   └── images.json
@@ -87,8 +83,24 @@ school/
 │   │   │   │   │   └── ...
 │   │   │   │   ├── Radici/
 │   │   │   │   │   └── ...
-│   │   └── treeparts.py
-│   └── main.py
+│   ├── src/
+│   │   ├── core/
+│   │   │   ├── common_ui_callback.py
+│   │   │   ├── datamanager.py
+│   │   │   ├── gamelogic.py
+│   │   │   ├── gamestate.py
+│   │   │   ├── imagemanager.py
+│   │   │   └── scoreboard.py
+│   │   ├── gui/
+│   │   │   └──renderer.py
+│   │   ├── quizzes/
+│   │   │   ├── lakeriversea.py
+│   │   │   ├── livingornot.py
+│   │   │   └── treeparts.py
+│   │   └── main.py
+├── tests/
+│   ├── (test files)
+│   └── ...
 ├── Makefile
 ├── README.md
 ├── requirements_dev.txt

@@ -1,6 +1,6 @@
 .PHONY: init format lint lint/flake8 lint/black test clean clean-temp clean-build clean-pyc clean-test
 
-PROJECT_DIR=schooltestsuite
+PROJECT_DIR=brainkids
 TESTS_DIR=tests
 
 init: ## install dependencies
@@ -13,10 +13,10 @@ format: ## format code with black
 lint: lint/flake8 lint/black ## check style
 
 lint/flake8: ## check style with flake8
-	flake8 ${PROJECT_DIR} ${TEST_DIR}
+	flake8 ${PROJECT_DIR} ${TESTS_DIR}
 
 lint/black: ## check style with black
-	black --check ${PROJECT_DIR} ${TEST_DIR}
+	black --check ${PROJECT_DIR} ${TESTS_DIR}
 
 test: ## run tests quickly with the default Python
 	pytest
