@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids main.py
+pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids src/main.py
 ```
 
 The Makefile contains frequent utility commands.
@@ -42,22 +42,21 @@ make test
 
 ```code
 brainkids/
-├── brainkids/
-│   ├── data/
-│   │   ├── gui/
-│   │   │   ├── images/
-│   │   │   │   ├── difficulty.png
-│   │   │   │   ├── icon.icns
-│   │   │   │   ├── icon.ico
-│   │   │   │   ├── icon.png
-│   │   │   │   ├── intro.png
-│   │   │   │   └── name.png
-│   │   ├── lakeriversea/
-│   │   │   ├── files/
-│   │   │   │   ├── chart.json
-│   │   │   │   └── images.json
-│   │   │   ├── images/
-│   │   │   │   ├── Fiume/
+├── data/
+│   ├── gui/
+│   │   ├── images/
+│   │   │   ├── difficulty.png
+│   │   │   ├── icon.icns
+│   │   │   ├── icon.ico
+│   │   │   ├── icon.png
+│   │   │   ├── intro.png
+│   │   │   └── name.png
+│   ├── lakeriversea/
+│   │   ├── files/
+│   │   │   ├── chart.json
+│   │   │   └── images.json
+│   │   ├── images/
+│   │   │   ├── Fiume/
 │   │   │   │   │   └── ...
 │   │   │   │   ├── Lago/
 │   │   │   │   │   └── ...
