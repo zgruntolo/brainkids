@@ -41,7 +41,12 @@ class Renderer:
             bordercolor=[("focus", "#2f4f4f"), ("!focus", "#2f4f4f")],
             relief=[("pressed", "sunken"), ("!pressed", "raised")],
         )
-        style.configure("TEntry", font=("TkDefaultFont", 16), fieldbackground="#f0ffff")
+        style.configure(
+            "TEntry",
+            font=("TkDefaultFont", 16),
+            fieldbackground="#f0ffff",
+            bordercolor="#2f4f4f",
+        )
         style.configure("TEntryFocus", fieldbackground="#b0e0e6")
         style.configure("TLabel", font=("TkDefaultFont", 20))
 
@@ -136,7 +141,7 @@ class Renderer:
 
     def show_game_selection_screen(self, game_option):
         # Show the game selection screen with available game options
-        self.update_screen("data/gui/images/intro.png", "Scegli un gioco:")
+        self.update_screen("data/gui/images/intro.jpg", "Scegli un gioco:")
         self.create_buttons(game_option, lambda g: self.start_game(game_option[g], g))
 
     def start_game(self, game_function, game_title):
@@ -148,7 +153,7 @@ class Renderer:
     def request_player_name(self):
         # Ask the player to enter their name before starting the game
         self.update_screen(
-            "data/gui/images/name.png", "Benvenuto! Inserisci il tuo nome:"
+            "data/gui/images/name.jpg", "Benvenuto! Inserisci il tuo nome:"
         )
         name_entry = ttk.Entry(self.button_frame, width=30)
         name_entry.grid(row=0, column=0, padx=5, pady=5)
@@ -161,7 +166,7 @@ class Renderer:
 
     def request_game_difficulty(self, difficulty_levels):
         # Ask the player to select a difficulty level
-        self.update_screen("data/gui/images/difficulty.png", "Scegli la difficoltà:")
+        self.update_screen("data/gui/images/difficulties.jpg", "Scegli la difficoltà:")
         self.create_buttons(
             difficulty_levels, lambda d: self.game_callback("set_game_difficulty", d)
         )

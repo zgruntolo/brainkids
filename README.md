@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids src/main.py
+pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids --paths --clean src src/main.py
 ```
 
 The Makefile contains frequent utility commands.
@@ -33,11 +33,11 @@ make test
 
 ## Project structure
 
+* data/: Contains data content files used by the application.
 * src/: Contains the source code of the project.
 * core/: Contains core functionality modules.
 * gui/: Contains modules related to the graphical user interface.
 * tests/: Contains unit tests for the project.
-* data/: Contains data content files used by the application.
 * requirements.txt: Lists the Python dependencies required for the project.
 
 ```code
