@@ -41,16 +41,16 @@ make test
 * requirements.txt: Lists the Python dependencies required for the project.
 
 ```code
-brainkids/
+brain_kids/
 ├── data/
 │   ├── gui/
 │   │   ├── images/
-│   │   │   ├── difficulty.png
+│   │   │   ├── difficulties.jpg
 │   │   │   ├── icon.icns
 │   │   │   ├── icon.ico
 │   │   │   ├── icon.png
-│   │   │   ├── intro.png
-│   │   │   └── name.png
+│   │   │   ├── intro.jpg
+│   │   │   └── name.jpg
 │   ├── lakeriversea/
 │   │   ├── files/
 │   │   │   ├── chart.json
@@ -101,8 +101,8 @@ brainkids/
 │   ├── (test files)
 │   └── ...
 ├── Makefile
+├── pyproject.toml
 ├── README.md
 ├── requirements_dev.txt
-├── requirements.txt
-└── setup.py
+└──  requirements.txt
 ```
