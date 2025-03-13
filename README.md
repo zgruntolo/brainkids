@@ -13,7 +13,7 @@ deactivate
 Use the following commands to create a single .exe file.
 
 ```shell
-pyinstaller --noconsole --onefile --add-data "data;data" --add-data "src;src" --icon=data/gui/images/icon.ico --name BrainKids --paths src src/main.py
+python -m nuitka --standalone --onefile --onefile-tempdir-spec=./temp --include-package=src.core --include-package=src.gui --include-package=src.quizzes --include-data-dir=data=data --windows-icon-from-ico=data/gui/images/icon.ico --enable-plugin=tk-inter --windows-console-mode=disable src/main.py
 ```
 
 The Makefile contains frequent utility commands.
