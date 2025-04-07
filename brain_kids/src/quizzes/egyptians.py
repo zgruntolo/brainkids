@@ -8,14 +8,14 @@ if "__compiled__" in globals():
 else:
     ABSOLUTE_PATH = Path(__file__).parent.parent.parent
 
-DIFFICULTY_RANK = {"Facile": 10, "Medio": 15, "Difficile": 20}
-DATA_FILE = ABSOLUTE_PATH / "data" / "livingornot" / "files" / "images.json"
-IMAGE_DIR = ABSOLUTE_PATH / "data" / "livingornot" / "images"
-DEFAULT_CHART = ABSOLUTE_PATH / "data" / "livingornot" / "files" / "chart.json"
-CHART_FILENAME = "livingornot.json"
+DIFFICULTY_RANK = {"Facile": 5, "Medio": 10, "Difficile": 15}
+DATA_FILE = ABSOLUTE_PATH / "data" / "egyptians" / "files" / "images.json"
+IMAGE_DIR = ABSOLUTE_PATH / "data" / "egyptians" / "images"
+DEFAULT_CHART = ABSOLUTE_PATH / "data" / "egyptians" / "files" / "chart.json"
+CHART_FILENAME = "egyptians.json"
 
 
-def LivingOrNot(renderer):
+def Egyptians(renderer):
     game_logic = GameLogic(
         DIFFICULTY_RANK,
         DATA_FILE,

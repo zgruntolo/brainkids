@@ -7,9 +7,9 @@ from PIL import Image, ImageTk
 
 
 def get_resource_path(relative_path):
-    # Returns the absolute path to a resource file, handling PyInstaller's _MEIPASS
-    if hasattr(sys, "_MEIPASS"):
-        return Path(sys._MEIPASS) / relative_path
+    # Returns the absolute path to a resource file, handling Nuitka's temporary folder
+    if "__compiled__" in globals():
+        return Path(__file__).parent.parent / relative_path
     else:
         return Path(__file__).parent.parent.parent / relative_path
 

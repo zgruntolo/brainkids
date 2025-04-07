@@ -4,4 +4,4 @@ flake8==7.1.1
 ipython==8.31.0
 pylint==3.3.3
 pytest==8.3.4
-nuitka==2.6.7
+nuitka==2.6.9

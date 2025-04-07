@@ -1,18 +1,17 @@
-import sys
 from pathlib import Path
 from core.gamelogic import GameLogic
 from core.common_ui_callback import create_game_ui_callback
 
-# Handle the Pyinstaller files path
-if hasattr(sys, "_MEIPASS"):
-    ABSOLUTE_PATH = Path(sys._MEIPASS)
+# Handle the Nuitka files path
+if "__compiled__" in globals():
+    ABSOLUTE_PATH = Path(__file__).parent.parent
 else:
     ABSOLUTE_PATH = Path(__file__).parent.parent.parent
 
 DIFFICULTY_RANK = {"Facile": 5, "Medio": 10, "Difficile": 15}
-DATA_FILE = ABSOLUTE_PATH / "data" / "treeparts" / "files/images.json"
+DATA_FILE = ABSOLUTE_PATH / "data" / "treeparts" / "files" / "images.json"
 IMAGE_DIR = ABSOLUTE_PATH / "data" / "treeparts" / "images"
-DEFAULT_CHART = ABSOLUTE_PATH / "data" / "treeparts" / "files/chart.json"
+DEFAULT_CHART = ABSOLUTE_PATH / "data" / "treeparts" / "files" / "chart.json"
 CHART_FILENAME = "treeparts.json"
 
 
