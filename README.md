@@ -51,37 +51,48 @@ brain_kids/
 │   │   │   ├── icon.png
 │   │   │   ├── intro.jpg
 │   │   │   └── name.jpg
+│   ├── egyptians/
+│   │   ├── files/
+│   │   │   ├── chart.json
+│   │   │   └── images.json
+│   │   ├── images/
+│   │   │   ├── Faraone/
+│   │   │   │   └── ...
+│   │   │   ├── Piramide/
+│   │   │   │   └── ...
+│   │   │   ├── Sarcofago/
+│   │   │   │   └── ...
 │   ├── lakeriversea/
 │   │   ├── files/
 │   │   │   ├── chart.json
 │   │   │   └── images.json
 │   │   ├── images/
 │   │   │   ├── Fiume/
-│   │   │   │   │   └── ...
-│   │   │   │   ├── Lago/
-│   │   │   │   │   └── ...
-│   │   │   │   ├── Mare/
-│   │   │   │   │   └── ...
-│   │   ├── livingornot/
-│   │   │   ├── files/
-│   │   │   │   ├── chart.json
-│   │   │   │   └── images.json
-│   │   │   ├── images/
-│   │   │   │   ├── Non Vivente/
-│   │   │   │   │   └── ...
-│   │   │   │   ├── Vivente/
-│   │   │   │   │   └── ...
-│   │   ├── treeparts/
-│   │   │   ├── files/
-│   │   │   │   ├── chart.json
-│   │   │   │   └── images.json
-│   │   │   ├── images/
-│   │   │   │   ├── Fusto/
-│   │   │   │   │   └── ...
-│   │   │   │   ├── Foglie/
-│   │   │   │   │   └── ...
-│   │   │   │   ├── Radici/
-│   │   │   │   │   └── ...
+│   │   │   │   └── ...
+│   │   │   ├── Lago/
+│   │   │   │   └── ...
+│   │   │   ├── Mare/
+│   │   │   │   └── ...
+│   ├── livingornot/
+│   │   ├── files/
+│   │   │   ├── chart.json
+│   │   │   └── images.json
+│   │   ├── images/
+│   │   │   ├── Non Vivente/
+│   │   │   │   └── ...
+│   │   │   ├── Vivente/
+│   │   │   │   └── ...
+│   ├── treeparts/
+│   │   ├── files/
+│   │   │   ├── chart.json
+│   │   │   └── images.json
+│   │   ├── images/
+│   │   │   ├── Fusto/
+│   │   │   │   └── ...
+│   │   │   ├── Foglie/
+│   │   │   │   └── ...
+│   │   │   ├── Radici/
+│   │   │   │   └── ...
 │   ├── src/
 │   │   ├── core/
 │   │   │   ├── common_ui_callback.py
