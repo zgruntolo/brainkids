@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "brainkids"
-version = "1.0.0"
+version = "1.2.0"
 description = "Visual tests for primary school deaf children"
 authors = [{ name = "Tommaso Seremia", email = "t.seremial@gmail.com" }]
 readme = "README.md"
@@ -18,7 +18,7 @@ packages = ["core", "gui", "quizzes"]
 package-dir = { "" = "src" }
 
 [tool.setuptools.package-data]
-brainkids = ["data/*.json", "images/*.png"]
+brainkids = ["data/*.json", "images/*.jpg"]
 
 [project.scripts]
 brainkids = "src.main:main"

@@ -1,5 +1,5 @@
-from pathlib import Path
 from core.datamanager import DataManager
+from pathlib import Path
 import unittest
 
 ABSOLUTE_PATH = Path(__file__).parent.parent.parent

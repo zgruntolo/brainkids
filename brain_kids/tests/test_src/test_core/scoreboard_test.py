@@ -1,7 +1,7 @@
-from pathlib import Path
 from core.gamestate import State
-import json
+from pathlib import Path
 import core.scoreboard as scoreboard
+import json
 import unittest
 
 

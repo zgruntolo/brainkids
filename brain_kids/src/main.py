@@ -1,10 +1,13 @@
 from contextlib import contextmanager
 from gui.renderer import Renderer
+from pathlib import Path
+from quizzes.animals import Animals
+from quizzes.eating import Eating
+from quizzes.egyptians import Egyptians
 from quizzes.lakeriversea import LakeRiverSea
 from quizzes.livingornot import LivingOrNot
+from quizzes.rocks import Rocks
 from quizzes.treeparts import TreeParts
-from quizzes.egyptians import Egyptians
-from pathlib import Path
 import sys
 import subprocess
 import time
@@ -14,6 +17,9 @@ games = {
     "Parti dell'albero": TreeParts,
     "Lago Fiume o Mare": LakeRiverSea,
     "Egizi": Egyptians,
+    "Che cosa mangiano?": Eating,
+    "Tipi di animali": Animals,
+    "Rocce": Rocks,
 }
 
 folder_path = Path(__file__).parent.parent / "temp"

@@ -1,9 +1,8 @@
 import platform
-import sys
 import tkinter as tk
 from pathlib import Path
-from tkinter import messagebox, ttk
 from PIL import Image, ImageTk
+from tkinter import messagebox, ttk
 
 
 def get_resource_path(relative_path):
@@ -129,8 +128,16 @@ class Renderer:
     def create_buttons(self, options, callback):
         # Create multiple buttons dynamically based on a list of options
         self.clean_screen()
+        row = 0
+        column = 0
         for idx, option in enumerate(options):
-            self.create_action_button(option, lambda opt=option: callback(opt), idx)
+            if row > 3:
+                row = 0
+                column += 1
+            self.create_action_button(
+                option, lambda opt=option: callback(opt), row, column
+            )
+            row += 1
 
     def update_screen(self, image_path=None, text=None):
         # Update the screen by displaying an image and/or text

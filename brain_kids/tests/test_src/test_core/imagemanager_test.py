@@ -1,7 +1,7 @@
-from pathlib import Path
-from PIL import Image
 from core.datamanager import DataManager
 from core.imagemanager import ImageManager
+from pathlib import Path
+from PIL import Image
 import unittest
 
 ABSOLUTE_PATH = Path(__file__).parent.parent.parent / "test_data" / "test"

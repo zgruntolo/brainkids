@@ -1,0 +1,23 @@
+{
+    "Magmatica": [
+        "diorite.jpg",
+        "gabbro.jpg",
+        "granito_rosa.jpg",
+        "porfido.jpg",
+        "sienite.jpg"
+    ],
+    "Metamorfica": [
+        "ardesia.jpg",
+        "granatite.jpg",
+        "marmo.jpg",
+        "micascisti.jpg",
+        "serpentine.jpg"
+    ],
+    "Sedimentaria": [
+        "calcare_maiolica.jpg",
+        "calcare_nummulitico.jpg",
+        "conglomerato.jpg",
+        "dolomia.jpg",
+        "travertino.jpg"
+    ]
+}

@@ -1,9 +1,9 @@
-import unittest
 from quizzes.treeparts import TreeParts
 from gui.renderer import Renderer
+import unittest
 
 
-class TestLivingOrNot(unittest.TestCase):
+class TestTreeParts(unittest.TestCase):
     def test_treeparts(self):
         renderer = Renderer(None, "Parti dell'albero")
         TreeParts(renderer)

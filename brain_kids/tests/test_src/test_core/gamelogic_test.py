@@ -1,8 +1,8 @@
-import unittest
-from pathlib import Path
-from unittest.mock import Mock, patch
 from core.gamelogic import GameLogic
+from pathlib import Path
 from PIL import Image
+from unittest.mock import Mock, patch
+import unittest
 
 
 class TestGameLogic(unittest.TestCase):

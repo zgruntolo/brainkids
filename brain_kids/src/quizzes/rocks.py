@@ -1,0 +1,31 @@
+from pathlib import Path
+from core.gamelogic import GameLogic
+from core.common_ui_callback import create_game_ui_callback
+
+# Handle the Nuitka files path
+if "__compiled__" in globals():
+    ABSOLUTE_PATH = Path(__file__).parent.parent
+else:
+    ABSOLUTE_PATH = Path(__file__).parent.parent.parent
+
+DIFFICULTY_RANK = {"Facile": 5}
+DATA_FILE = ABSOLUTE_PATH / "data" / "rocks" / "files" / "images.json"
+IMAGE_DIR = ABSOLUTE_PATH / "data" / "rocks" / "images"
+DEFAULT_CHART = ABSOLUTE_PATH / "data" / "rocks" / "files" / "chart.json"
+CHART_FILENAME = "rocks.json"
+
+
+def Rocks(renderer):
+    game_logic = GameLogic(
+        DIFFICULTY_RANK,
+        DATA_FILE,
+        IMAGE_DIR,
+        DEFAULT_CHART,
+        CHART_FILENAME,
+        game_ui_callback=None,
+    )
+
+    ui_callback = create_game_ui_callback(game_logic, renderer)
+    game_logic.game_ui_callback = ui_callback
+    renderer.game_callback = ui_callback
+    game_logic.start_game()

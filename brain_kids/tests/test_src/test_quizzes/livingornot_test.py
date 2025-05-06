@@ -1,6 +1,6 @@
-import unittest
 from quizzes.livingornot import LivingOrNot
 from gui.renderer import Renderer
+import unittest
 
 
 class TestLivingOrNot(unittest.TestCase):
