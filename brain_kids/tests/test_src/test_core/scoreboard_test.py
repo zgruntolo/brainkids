@@ -4,7 +4,6 @@ import core.scoreboard as scoreboard
 import json
 import unittest
 
-
 ABSOLUTE_PATH = Path(__file__).parent.parent.parent / "test_data" / "saves"
 DEFAULT_TEST_NAME = "state.json"
 DEFAULT_TEST_PATH = ABSOLUTE_PATH / DEFAULT_TEST_NAME

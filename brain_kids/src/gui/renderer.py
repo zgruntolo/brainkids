@@ -62,7 +62,7 @@ class Renderer:
         self.button_frame = ttk.Frame(self.main_container)
         self.button_frame.grid(row=1, column=0, sticky="nsew")
         self.configure_grid(self.button_frame)
-        
+
         self.button_layout = ButtonGridLayout(self.button_frame)
 
     def set_application_icon(self):
@@ -126,7 +126,9 @@ class Renderer:
     def create_action_button(self, text, command, row, column=0, columnspan=1):
         # Creates a button and places it in the button frame
         button = ttk.Button(self.button_frame, text=text, command=command)
-        button.grid(row=row, column=column, columnspan=columnspan, padx=5, pady=5, sticky="ew")
+        button.grid(
+            row=row, column=column, columnspan=columnspan, padx=5, pady=5, sticky="ew"
+        )
 
     def create_buttons(self, options, callback):
         self.clean_screen()
@@ -139,10 +141,7 @@ class Renderer:
         for i, option in enumerate(options):
             row, column = self.button_layout.position(i)
             self.create_action_button(
-                option,
-                lambda opt=option: callback(opt),
-                row,
-                column
+                option, lambda opt=option: callback(opt), row, column
             )
 
     def update_screen(self, image_path=None, text=None):
@@ -166,9 +165,9 @@ class Renderer:
     def request_player_name(self):
         # Ask the player to enter their name before starting the game
         self.button_layout.reset()
-        
+
         self.button_frame.columnconfigure(0, weight=1)
-        
+
         self.update_screen(
             "data/gui/images/name.jpg", "Benvenuto! Inserisci il tuo nome:"
         )

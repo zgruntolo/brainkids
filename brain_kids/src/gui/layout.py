@@ -10,7 +10,9 @@ class ButtonGridLayout:
 
     def apply(self, num_items):
         self.reset()
-        num_columns = max(1, (num_items + self.rows_per_column - 1) // self.rows_per_column)
+        num_columns = max(
+            1, (num_items + self.rows_per_column - 1) // self.rows_per_column
+        )
         for c in range(num_columns):
             self.frame.columnconfigure(c, weight=1)
         self.last_columns = num_columns
