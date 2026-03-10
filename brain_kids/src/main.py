@@ -7,6 +7,7 @@ from quizzes.egyptians import Egyptians
 from quizzes.lakeriversea import LakeRiverSea
 from quizzes.livingornot import LivingOrNot
 from quizzes.rocks import Rocks
+from quizzes.solarsystem import SolarSystem
 from quizzes.treeparts import TreeParts
 import sys
 import subprocess
@@ -19,6 +20,7 @@ games = {
     "Egizi": Egyptians,
     "Che cosa mangiano?": Eating,
     "Tipi di animali": Animals,
+    "Sistema Solare": SolarSystem,
     "Rocce": Rocks,
 }
 
